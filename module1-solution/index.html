@@ -10,14 +10,15 @@
         .message {
             font-size: 1.3em;
             font-weight: bold;
+
         }
     </style>
 </head>
-<body ng-controller="MyController">
+<body ng-controller="LunchCheckController">
 <div class="container">
     <h1>Lunch Checker</h1>
     <div class="form-group">
-        <input type="text"
+        <input type="text" ng-style="{'border-color': bordercolor}"
                placeholder="list comma separated dishes you usually have for lunch"
                class="form-control" ng-model="items">
     </div>
@@ -25,7 +26,8 @@
         <button class="btn btn-default" ng-click="check_items_number()">Check If Too Much</button>
     </div>
     <div class="form-group message">
-       {{message}}
+        <p ng-style="{'color': color}">{{message}}</p>
+        <p>{{hint}}</p>
     </div>
 </div>
 
