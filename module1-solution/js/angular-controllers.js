@@ -63,11 +63,11 @@
             } else if (none_empty_items) { // If Lunch dishes do Not contain any empty item
                 var items_len = items.length;
                 if (items_len <= 3) {
-                    $scope.message = 'Enjoy!. ';
+                    $scope.message = 'Enjoy!';
                     $scope.color = '#00ff00';
                     $scope.bordercolor = '#00ff00';
                 } else if (items_len > 3) {
-                    $scope.message = 'Too much!. ';
+                    $scope.message = 'Too much!';
                     $scope.color = '#00ff00';
                     $scope.bordercolor = '#00ff00';
                 }
