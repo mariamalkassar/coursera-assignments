@@ -17,6 +17,7 @@
 <body ng-controller="LunchCheckController">
 <div class="container">
     <h1>Lunch Checker</h1>
+    <h4>We do NOT consider an empty item</h4>
     <div class="form-group">
         <input type="text" ng-style="{'border-color': bordercolor}"
                placeholder="list comma separated dishes you usually have for lunch"
@@ -27,7 +28,6 @@
     </div>
     <div class="form-group message">
         <p ng-style="{'color': color}">{{message}}</p>
-        <p>{{hint}}</p>
     </div>
 </div>
 
