@@ -25,17 +25,36 @@
         button > span {
             color: green;
         }
+
+        h3.header span {
+            background: #ffffff;
+            padding: 0 10px;
+        }
+
+        h3.header {
+            width: 100%;
+            text-align: center;
+            border-bottom: 1px solid #cccccc;
+            line-height: 0.1em;
+            margin: 10px 0 20px;
+            font-family: 'Signika-Regular';
+            color: #000000;
+        }
+        .well{
+            padding: 10px;
+        }
+
     </style>
 </head>
 <body>
 <div class="container">
-    <h1>Shopping List Check Off</h1>
+    <h2 class="well">Shopping List Check Off</h2>
 
     <div class="row">
 
         <!-- To Buy List -->
         <div class="col-md-6" ng-controller="ToBuyController as itemsToBuy ">
-            <h2>To Buy:</h2>
+            <h3 class="header"><span>To Buy:</span></h3>
             <ol>
                 <li ng-repeat="item in itemsToBuy.items_to_buy_list">
                     Buy {{item.quantity}} {{item.name}}
@@ -45,19 +64,19 @@
                 </li>
 
             </ol>
-            <div ng-if="itemsToBuy.errorMessageLC" class="emptyMessage">{{itemsToBuy.errorMessageLC}}</div>
+            <div ng-if="itemsToBuy.errorMessageLC" class="emptyMessage" align="center">{{itemsToBuy.errorMessageLC}}</div>
         </div>
 
         <!-- Already Bought List -->
         <div class="col-md-6" ng-controller="AlreadyBoughtController as itemsBought">
-            <h2>Already Bought:</h2>
+            <h3 class="header"><span>Already Bought:</span></h3>
             <ul>
                 <li ng-repeat="item in itemsBought.items_bought_list">
                     Bought {{item.quantity}} {{item.name}}
                 </li>
             </ul>
-            
-            <div ng-if="itemsBought.checkItemsBoughtList()" class="emptyMessage">Nothing bought yet.</div>
+
+            <div ng-if="itemsBought.checkItemsBoughtList()" class="emptyMessage" align="center">Nothing bought yet.</div>
         </div>
     </div>
 </div>
