@@ -11,6 +11,7 @@
             scope: {
                 items: '<',
                 onRemove: '&',
+                badRemove: '=',
             }
         };
 
