@@ -32,7 +32,6 @@
         var items = this;
         items.searchTerm = '';
         items.foundItems = [];
-        items.empty_list = false;
         items.getMatchedMenuItems = function () {
 
             if (items.searchTerm !== '') {
