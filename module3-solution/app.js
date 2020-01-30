@@ -11,7 +11,6 @@
             scope: {
                 items: '<',
                 onRemove: '&',
-                badRemove: '=',
             }
         };
 
@@ -34,7 +33,7 @@
             }).catch(function (error) {
                 console.log("Something went terribly wrong.");
             });
-        }
+        };
 
         items.removeItem = function (itemIndex) {
             console.log("Remove item index ==", itemIndex);

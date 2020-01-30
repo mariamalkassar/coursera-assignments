@@ -1,4 +1,4 @@
-<p>Test2</p>
+<p>Test3</p>
 <table class="table table-striped" ng-if="items.foundItems.length != 0">
         <thead class="thead-light">
         <tr>
@@ -14,8 +14,8 @@
             <td>{{item.short_name}}</td>
             <td>{{item.description}}</td>
             <td>
-                {{$index}}
-                <button class="btn btn-primary" ng-click="items.badRemove($index);">Don't want this one!</button>
+
+                <button ng-click="items.onRemove({index: $index});">Don't want this one!</button>
             </td>
         </tr>
 
