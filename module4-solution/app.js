@@ -11,7 +11,7 @@
         var ddo = {
             templateUrl: 'shoppingList.html',
             scope: {
-                items: '<',
+                itemss: '<',
                 onRemove: '&'
             },
             controller: ShoppingListDirectiveController,
