@@ -33,6 +33,7 @@
     function ShoppingListController(ShoppingListservice) {
         var list = this;
         list.getMatchedMenuItems = function () {
+            console.log("22222")
             list.founded = ShoppingListservice.getItems();
         }
 
@@ -42,12 +43,8 @@
             ShoppingListservice.removeItem(itemIndex);
         };
     }
-
-
-// If not specified, maxItems assumed unlimited
-    ShoppingListservice.$inject = ['$http'];
-
-    function ShoppingListservice($http) {
+    
+    function ShoppingListservice() {
         var service = this;
 
         // List of shopping items
