@@ -34,8 +34,8 @@
         var list = this;
         list.getMatchedMenuItems = function () {
             console.log("22222")
-            list.founded = ShoppingListservice.getItems();
-            console.log(list.founded);
+            list.items = ShoppingListservice.getItems();
+            console.log(list.items);
         }
 
 
@@ -49,7 +49,7 @@
         var service = this;
 
         // List of shopping items
-        var founded = [
+        var items = [
             {name: 'mariam', short_name: 'AA', describtion: '21321'},
             {name: 'mariam', short_name: 'AA', describtion: '21321'},
             {name: 'mariam', short_name: 'AA', describtion: '21321'},
@@ -60,11 +60,11 @@
 
 
         service.removeItem = function (itemIndex) {
-            founded.splice(itemIndex, 1);
+            items.splice(itemIndex, 1);
         };
 
         service.getItems = function () {
-            return founded;
+            return items;
         };
     }
 
