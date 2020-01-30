@@ -32,7 +32,7 @@
     function NarrowItDownController(MenuSearchService) {
         var list = this;
         list.searchTerm = '';
-        list.foundItems = [];
+        // list.foundItems = [];
         list.getMatchedMenuItems = function (searchTerm) {
             var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
 
