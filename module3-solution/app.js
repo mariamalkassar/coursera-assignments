@@ -9,7 +9,7 @@
         var ddo = {
             templateUrl: 'shoppingList.html',
             scope: {
-                items: '=myItems'
+                items: '<'
             }
         };
 
