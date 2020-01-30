@@ -33,8 +33,7 @@
         items.foundItems = [];
         items.show = false;
         items.getMatchedMenuItems = function () {
-            items.foundItems = [];
-            if (items.searchTerm != '') {
+            if (items.searchTerm !== '') {
                 var promise = MenuSearchService.getMatchedMenuItems(items.searchTerm);
                 promise.then(function (foundItems) {
                     items.foundItems = foundItems;
