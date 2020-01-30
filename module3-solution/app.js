@@ -4,15 +4,12 @@
         .controller('NarrowItDownController', NarrowItDownController)
         .service('MenuSearchService', MenuSearchService);
 
-
-
-
     NarrowItDownController.$inject = ['MenuSearchService'];
 
     function NarrowItDownController(MenuSearchService) {
         var items = this;
         items.searchTerm = '';
-        Items.foundItems = [];
+        items.foundItems = [];
         items.getMatchedMenuItems = function (searchTerm) {
             //  items.foundItems = [
             //     {name: "cookies", short_name: 10},
@@ -25,8 +22,8 @@
             var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
 
             promise.then(function (foundItems) {
-                Items.foundItems = foundItems;
-                console.log("foundItems = ", foundItems);
+                items.foundItems = foundItems;
+                console.log("foundItems = ", items.foundItems);
             }).catch(function (error) {
                 console.log("Something went terribly wrong.");
             });
