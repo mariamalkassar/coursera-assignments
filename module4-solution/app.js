@@ -46,6 +46,7 @@
         list.getMatchedMenuItems = function () {
             console.log("22222")
             list.founded = ShoppingListservice.getItems();
+            console.log(list.founded);
         }
 
 
