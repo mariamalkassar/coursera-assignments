@@ -2,7 +2,20 @@
     'use strict';
     angular.module('MyApp', [])
         .controller('NarrowItDownController', NarrowItDownController)
-        .service('MenuSearchService', MenuSearchService);
+        .service('MenuSearchService', MenuSearchService)
+        .directive('shoppingList', ShoppingList);
+
+    function ShoppingList() {
+        var ddo = {
+            templateUrl: 'shoppingList.html',
+            scope: {
+                items: '=myItems'
+            }
+        };
+
+        return ddo;
+    }
+
 
     NarrowItDownController.$inject = ['MenuSearchService'];
 
