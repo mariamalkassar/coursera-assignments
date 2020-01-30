@@ -33,20 +33,19 @@
         items.foundItems = [];
         items.show = false;
         items.getMatchedMenuItems = function () {
+            items.foundItems = [];
             if (items.searchTerm != '') {
                 var promise = MenuSearchService.getMatchedMenuItems(items.searchTerm);
                 promise.then(function (foundItems) {
                     items.foundItems = foundItems;
-                    // items.show = MenuSearchService.EmptyList();
                     console.log('items.foundItems=', items.foundItems);
                 }).catch(function (error) {
                     console.log("Something went terribly wrong.");
                 });
             } else {
                 items.foundItems = [];
-                // items.show = MenuSearchService.EmptyList();
             }
-            // items.show = MenuSearchService.EmptyList();
+            items.show = MenuSearchService.EmptyList();
 
         };
 
@@ -68,7 +67,6 @@
                 url: ("https://davids-restaurant.herokuapp.com/menu_items.json")
             }).then(function (result) {
                 var menu_items = result.data.menu_items;
-
 
                 for (var i = 0; i < menu_items.length; i++) {
                     // console.log(menu_items[i].description);
