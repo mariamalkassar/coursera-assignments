@@ -10,20 +10,20 @@
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-<div class="container" ng-controller="NarrowItDownController as searchItems">
+<div class="container" ng-controller="NarrowItDownController as Items">
     <h1>Narrow Down Your Chinese Menu Choice</h1>
 
     <div class="form-group">
-        <input type="text" placeholder="search term" ng-model="searchItems.searchTerm" class="form-control">
+        <input type="text" placeholder="search term" ng-model="Items.searchTerm" class="form-control">
     </div>
     <div class="form-group narrow-button">
-        <button class="btn btn-primary" ng-click="searchItems.getMatchedMenuItems(searchItems.searchTerm)">Narrow It
+        <button class="btn btn-primary" ng-click="Items.getMatchedMenuItems(Items.searchTerm)">Narrow It
             Down For Me!
         </button>
     </div>
 
     <!-- found-items should be implemented as a component -->
-    <found-items items-found="searchItems.foundItems"></found-items>
+    <found-items items-found="Items.foundItems"></found-items>
 </div>
 
 </body>

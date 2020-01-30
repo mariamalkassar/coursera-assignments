@@ -12,7 +12,7 @@
                 itemsFound: '<'
             },
             controller: NarrowItDownDirectiveController,
-            controllerAs: 'searchItems',
+            controllerAs: 'Items',
             bindToController: true,
         };
 
@@ -21,20 +21,20 @@
 
 
     function NarrowItDownDirectiveController() {
-        var searchItems = this;
+        var Items = this;
     }
 
     NarrowItDownController.$inject = ['MenuSearchService'];
 
     function NarrowItDownController(MenuSearchService) {
-        var searchItems = this;
-        searchItems.searchTerm = '';
-        searchItems.foundItems = [];
-        searchItems.getMatchedMenuItems = function (searchTerm) {
+        var Items = this;
+        Items.searchTerm = '';
+        Items.foundItems = [];
+        Items.getMatchedMenuItems = function (searchTerm) {
             var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
 
             promise.then(function (foundItems) {
-                searchItems.foundItems = foundItems;
+                Items.foundItems = foundItems;
                 console.log("foundItems = ", foundItems);
             }).catch(function (error) {
                 console.log("Something went terribly wrong.");
