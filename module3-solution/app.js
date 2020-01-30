@@ -38,11 +38,15 @@
                 promise.then(function (foundItems) {
                     items.foundItems = foundItems;
                     items.show = MenuSearchService.EmptyList();
+                    console.log('items.foundItems=',items.foundItems);
                 }).catch(function (error) {
                     console.log("Something went terribly wrong.");
                 });
+            } else {
+                items.foundItems = [];
+                items.show = MenuSearchService.EmptyList();
             }
-            items.show = MenuSearchService.EmptyList();
+
 
         };
 
@@ -81,7 +85,7 @@
         };
         service.EmptyList = function () {
             if (foundItems.length === 0) {
-                 return true;
+                return true;
             } else {
                 return false;
             }
