@@ -10,7 +10,7 @@
             templateUrl: 'foundItemsTemplate.html',
             scope: {
                 lists: '<',
-                removeitem: '&'
+                onRemove: '&'
             }
         };
 
