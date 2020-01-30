@@ -24,7 +24,7 @@
 
 
     function ShoppingListDirectiveController() {
-        var list = this;
+
     }
 
 
