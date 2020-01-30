@@ -32,8 +32,10 @@
 
     function ShoppingListController(ShoppingListservice) {
         var list = this;
+        list.getMatchedMenuItems = function () {
+            list.founded = ShoppingListservice.getItems();
+        }
 
-        list.founded = ShoppingListservice.getItems();
 
         list.removeItem = function (itemIndex) {
             alert("rrrrrrrrrrrrrrrrrr");
@@ -50,14 +52,13 @@
 
         // List of shopping items
         var founded = [
-            {name: 'mariam', short_name : 'AA', describtion: '21321'},
-            {name: 'mariam', short_name : 'AA', describtion: '21321'},
-            {name: 'mariam', short_name : 'AA', describtion: '21321'},
-            {name: 'mariam', short_name : 'AA', describtion: '21321'},
-            {name: 'mariam', short_name : 'AA', describtion: '21321'},
-            {name: 'mariam', short_name : 'AA', describtion: '21321'},
+            {name: 'mariam', short_name: 'AA', describtion: '21321'},
+            {name: 'mariam', short_name: 'AA', describtion: '21321'},
+            {name: 'mariam', short_name: 'AA', describtion: '21321'},
+            {name: 'mariam', short_name: 'AA', describtion: '21321'},
+            {name: 'mariam', short_name: 'AA', describtion: '21321'},
+            {name: 'mariam', short_name: 'AA', describtion: '21321'},
         ];
-
 
 
         service.removeItem = function (itemIndex) {
