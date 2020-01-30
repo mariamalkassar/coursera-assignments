@@ -35,15 +35,14 @@
 
             promise.then(function (foundItems) {
                 items.foundItems = foundItems;
-                console.log("foundItems = ", items.foundItems);
+
             }).catch(function (error) {
                 console.log("Something went terribly wrong.");
             });
         };
 
         items.remove = function (itemIndex) {
-            alert("HHHHHHHHHHHHHHHHHHHHHHHi ");
-            items.foundItems.splice(itemIndex, 1);
+            MenuSearchService.removeItem(itemIndex);
         };
 
 
