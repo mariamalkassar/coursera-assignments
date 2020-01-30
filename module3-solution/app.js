@@ -3,11 +3,11 @@
     angular.module('MyApp', [])
         .controller('NarrowItDownController', NarrowItDownController)
         .service('MenuSearchService', MenuSearchService)
-        .directive('shoppingList', ShoppingList);
+        .directive('foundItems', FoundItemsDirective);
 
-    function ShoppingList() {
+    function FoundItemsDirective() {
         var ddo = {
-            templateUrl: 'shoppingList.html',
+            templateUrl: 'foundItemsTemplate.html',
             scope: {
                 items: '<'
             }
@@ -24,14 +24,6 @@
         items.searchTerm = '';
         items.foundItems = [];
         items.getMatchedMenuItems = function (searchTerm) {
-            //  items.foundItems = [
-            //     {name: "cookies", short_name: 10},
-            //     {name: "Apple", short_name: 5},
-            //     {name: "Milk", short_name: 4},
-            //     {name: "Lemon", short_name: 15},
-            //     {name: "Tomato", short_name: 20},
-            // ];
-
             var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
 
             promise.then(function (foundItems) {
