@@ -10,7 +10,8 @@
             templateUrl: 'foundItemsTemplate.html',
             scope: {
                 lists: '<',
-                onRemove: '&'
+                onRemove: '&',
+                emptyList: '<'
             },
             controller: NarrowItDownDirectiveController,
             controllerAs: 'ctrl',
@@ -31,18 +32,25 @@
         var items = this;
         items.searchTerm = '';
         items.foundItems = [];
-        items.show = false;
+        items.empty_list = false;
         items.getMatchedMenuItems = function () {
+
             if (items.searchTerm !== '') {
                 var promise = MenuSearchService.getMatchedMenuItems(items.searchTerm);
                 promise.then(function (foundItems) {
                     items.foundItems = foundItems;
+                    if (items.foundItems.length !== 0) {
+                        items.empty_list = false;
+                    } else {
+                        items.empty_list = true;
+                    }
                     console.log('items.foundItems=', items.foundItems);
                 }).catch(function (error) {
                     console.log("Something went terribly wrong.");
                 });
             } else {
                 items.foundItems = [];
+                items.empty_list = true;
             }
 
         };
@@ -65,7 +73,7 @@
                 url: ("https://davids-restaurant.herokuapp.com/menu_items.json")
             }).then(function (result) {
                 var menu_items = result.data.menu_items;
-                 var foundItems = [];
+                var foundItems = [];
                 for (var i = 0; i < menu_items.length; i++) {
                     // console.log(menu_items[i].description);
                     var description = menu_items[i].description;
@@ -76,7 +84,6 @@
                 return foundItems;
             });
         };
-
 
 
     }

@@ -23,12 +23,9 @@
     </div>
     <br>
     <br>
-    <found-items lists="items.foundItems" on-remove="items.remove(index)"></found-items>
+    <found-items lists="items.foundItems" on-remove="items.remove(index)" empty-list="items.empty_list"></found-items>
     <br>
-    <div class="error" ng-if="!items.foundItems.length">Nothing found.</div>
-<!--    <div class="error" ng-if="items.show">Nothing found..</div>-->
-    <!-- found-items should be implemented as a component -->
-    <!--    <items-list items="items.foundItems" title="Shopping List #2 (limited to 3 items)"></items-list>-->
+
 
 </div>
 
