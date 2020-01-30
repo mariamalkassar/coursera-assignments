@@ -10,7 +10,7 @@
             templateUrl: 'foundItemsTemplate.html',
             scope: {
                 lists: '<',
-                onRemove: '&'
+                removeitem: '&'
             }
         };
 
@@ -35,7 +35,7 @@
             });
         };
 
-        items.remove = function () {
+        items.remove = function (itemIndex) {
             alert("HHHHHHHHHHHHHHHHHHHHHHHi ");
             // items.foundItems.splice(itemIndex, 1);
         };
