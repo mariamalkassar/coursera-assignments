@@ -37,16 +37,16 @@
                 var promise = MenuSearchService.getMatchedMenuItems(items.searchTerm);
                 promise.then(function (foundItems) {
                     items.foundItems = foundItems;
-                    items.show = MenuSearchService.EmptyList();
-                    console.log('items.foundItems=',items.foundItems);
+                    // items.show = MenuSearchService.EmptyList();
+                    console.log('items.foundItems=', items.foundItems);
                 }).catch(function (error) {
                     console.log("Something went terribly wrong.");
                 });
             } else {
                 items.foundItems = [];
-                items.show = MenuSearchService.EmptyList();
+                // items.show = MenuSearchService.EmptyList();
             }
-
+            // items.show = MenuSearchService.EmptyList();
 
         };
 
