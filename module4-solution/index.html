@@ -1,29 +1,34 @@
-<!DOCTYPE html>
-<html ng-app='ShoppingListDirectiveApp'>
+<!doctype html>
+<html lang="en" ng-app="MyApp">
 <head>
-    <meta charset="utf-8">
-    <script src="angular.min.js"></script>
-    <script src="app.js"></script>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="bootstrap.min.css">
-    <title>Directives with Isolate Scope and '&'</title>
+    <title>Narrow Down Your Menu Choice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-<h1>Directives with Isolate Scope and '&'</h1>
-
-<!-- LIST #1 - unlimited items -->
-<div id="list" ng-controller='ShoppingListController as list'>
+<div class="container" ng-controller="NarrowItDownController as items">
     <h1>Narrow Down Your Chinese Menu Choice</h1>
-<!--    <div class="form-group">-->
-<!--        <input type="text" placeholder="search term" ng-model="list.searchTerm" class="form-control">-->
-<!--    </div>-->
+
+    <div class="form-group">
+        <input type="text" placeholder="search term" ng-model="items.searchTerm" class="form-control">
+    </div>
     <div class="form-group narrow-button">
-        <button class="btn btn-primary" ng-click="list.getMatchedMenuItems()">Narrow It
+        <button class="btn btn-primary" ng-click="items.getMatchedMenuItems()">Narrow It
             Down For Me!
         </button>
     </div>
-
-    <shopping-list lines="list.lines1" on-remove="list.removeItem(index)"></shopping-list>
+    <br>
+    <br>
+    <found-items lists="items.foundItems" on-remove="items.remove(index)" emptylist="items.empty_list"></found-items>
+    <br>
+<!--    <div class="error" ng-if="!items.foundItems.length">Nothing found.</div>-->
+<!--    <div class="error" ng-if="items.show">Nothing found..</div>-->
+    <!-- found-items should be implemented as a component -->
+    <!--    <items-list items="items.foundItems" title="Shopping List #2 (limited to 3 items)"></items-list>-->
 
 </div>
 
