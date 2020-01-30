@@ -9,7 +9,8 @@
         return {
             templateUrl: "foundItems.html",
             scope: {
-                itemsFound: '<'
+                items: '<',
+                myTitle: '@title'
             },
 
         };
