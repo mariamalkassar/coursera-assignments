@@ -38,6 +38,7 @@
                 {name: "Lemon", short_name: 15},
                 {name: "Tomato", short_name: 20},
             ];
+             console.log("foundItems = ", Items.foundItems);
             // var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
             //
             // promise.then(function (foundItems) {
