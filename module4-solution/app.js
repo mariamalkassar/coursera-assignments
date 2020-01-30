@@ -28,15 +28,15 @@
     }
 
 
-    ShoppingListController.$inject = ['ShoppingListFactory'];
+    ShoppingListController.$inject = ['ShoppingListService'];
 
-    function ShoppingListController(ShoppingListFactory) {
+    function ShoppingListController(ShoppingListService) {
         var list = this;
 
         list.searchTerm = '';
         list.foundItems = [];
         list.getMatchedMenuItems = function () {
-            var promise = MenuSearchService.getMatchedMenuItems(list.searchTerm);
+            var promise = ShoppingListService.getMatchedMenuItems(list.searchTerm);
             promise.then(function (foundItems) {
                 list.foundItems = foundItems;
                 console.log("foundItems = ", list.foundItems);
