@@ -1,24 +1,7 @@
-<p>Test1</p>
-<label>{{list.searchTerm}}</label>
-<table class="table table-striped" ng-if="list.foundItems.length != 0">
-        <thead class="thead-light">
-        <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Short name</th>
-            <th scope="col">Description</th>
-            <th scope="col">---</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="item in list.foundItems">
-            <th>{{item.name }}</th>
-            <td>{{item.short_name}}</td>
-            <td>{{item.description}}</td>
-            <td>
-
-                <button ng-click="list.onRemove({index: $index});">Don't want this!</button>
-            </td>
-        </tr>
-
-        </tbody>
-    </table>
+<h3>Test1</h3>
+<ol>
+  <li ng-repeat="item in list.founded">
+    {{ item.name }} of {{ item.short_name }}
+    <button ng-click="list.onRemove({index: $index});">Remove Item</button>
+  </li>
+</ol>

@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <script src="angular.min.js"></script>
     <script src="app.js"></script>
-    <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
     <title>Directives with Isolate Scope and '&'</title>
 </head>
 <body>
@@ -13,9 +13,7 @@
 
 <!-- LIST #1 - unlimited items -->
 <div id="list" ng-controller='ShoppingListController as list'>
-
     <h1>Narrow Down Your Chinese Menu Choice</h1>
-
     <div class="form-group">
         <input type="text" placeholder="search term" ng-model="list.searchTerm" class="form-control">
     </div>
@@ -24,10 +22,9 @@
             Down For Me!
         </button>
     </div>
-    <br>
-    <br>
+
     <shopping-list
-            items="list.foundItems"
+            items="list.founded"
             on-remove="list.removeItem(index)"></shopping-list>
 
 </div>
