@@ -33,14 +33,15 @@
         items.foundItems = [];
         items.show = false;
         items.getMatchedMenuItems = function () {
-            var promise = MenuSearchService.getMatchedMenuItems(items.searchTerm);
-            promise.then(function (foundItems) {
-                items.foundItems = foundItems;
+            if (items.searchTerm != '') {
+                var promise = MenuSearchService.getMatchedMenuItems(items.searchTerm);
+                promise.then(function (foundItems) {
+                    items.foundItems = foundItems;
 
-            }).catch(function (error) {
-                console.log("Something went terribly wrong.");
-            });
-
+                }).catch(function (error) {
+                    console.log("Something went terribly wrong.");
+                });
+            }
             if (items.foundItems.length === 0) {
                 items.show = true;
             } else {
