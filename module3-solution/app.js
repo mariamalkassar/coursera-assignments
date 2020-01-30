@@ -12,16 +12,46 @@
                 lists: '<',
                 onRemove: '&'
             },
-            controller: ShoppingListDirectiveController,
+            controller: NarrowItDownDirectiveController,
             controllerAs: 'ctrl',
-            bindToController: true
+            bindToController: true,
+            link: NarrowItDownDirectiveLink
         };
 
         return ddo;
     }
 
-    function ShoppingListDirectiveController() {
+    function NarrowItDownDirectiveLink(scope, element, attrs, controller) {
+        scope.$watch('ctrl.emptyInput', function (newValue, oldValue) {
+            if (newValue === true) {
+                displayCookieWarning();
+            } else {
+                removeCookieWarning();
+            }
 
+        });
+
+        function displayCookieWarning() {
+            var warningElem = element.find("div.error");
+            warningElem.slideDown(900);
+        }
+
+
+        function removeCookieWarning() {
+            var warningElem = element.find("div.error");
+            warningElem.slideUp(900);
+        }
+    }
+
+    function NarrowItDownDirectiveController() {
+        var ctrl = this;
+
+        ctrl.emptyInput = function () {
+            if (ctrl.lists.length == 0) {
+                return true;
+            }
+            return false;
+        };
     }
 
     NarrowItDownController.$inject = ['MenuSearchService'];
