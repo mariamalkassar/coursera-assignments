@@ -11,34 +11,26 @@
             scope: {
                 itemsFound: '<'
             },
-            controller: NarrowItDownDirectiveController,
-            controllerAs: 'Items',
-            bindToController: true,
+
         };
-
-
     }
 
-
-    function NarrowItDownDirectiveController() {
-        var Items = this;
-    }
 
     NarrowItDownController.$inject = ['MenuSearchService'];
 
     function NarrowItDownController(MenuSearchService) {
-        var Items = this;
-        Items.searchTerm = '';
+        var items = this;
+        items.searchTerm = '';
         // Items.foundItems = [];
-        Items.getMatchedMenuItems = function (searchTerm) {
-             Items.foundItems = [
+        items.getMatchedMenuItems = function (searchTerm) {
+             items.foundItems = [
                 {name: "cookies", short_name: 10},
                 {name: "Apple", short_name: 5},
                 {name: "Milk", short_name: 4},
                 {name: "Lemon", short_name: 15},
                 {name: "Tomato", short_name: 20},
             ];
-             console.log("foundItems = ", Items.foundItems);
+             console.log("foundItems = ", items.foundItems);
             // var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
             //
             // promise.then(function (foundItems) {
