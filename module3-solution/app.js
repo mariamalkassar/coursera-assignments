@@ -10,9 +10,8 @@
             templateUrl: 'foundItemsTemplate.html',
             scope: {
                 lists: '<',
-                onRemove: '&',
-            },
-
+                onRemove: '&'
+            }
         };
 
         return ddo;
@@ -37,6 +36,7 @@
         };
 
         items.removeItem = function (itemIndex) {
+            alert("HHHHHHHHHHHHHHHHHHHHHHHi ");
             console.log("Remove item index ==", itemIndex);
             // this.lastRemoved = "Last item removed was " + this.items[itemIndex].name;
             MenuSearchService.removeItem(itemIndex);
