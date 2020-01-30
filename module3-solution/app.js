@@ -79,7 +79,7 @@
         service.removeItem = function (itemIndex) {
             foundItems.splice(itemIndex, 1);
         };
-        service.emptyList = function () {
+        service.EmptyList = function () {
             if (foundItems.length === 0) {
                  return true;
             } else {
