@@ -1,111 +1,81 @@
 (function () {
-'use strict';
+    'use strict';
 
-angular.module('ShoppingListDirectiveApp', [])
-.controller('ShoppingListController', ShoppingListController)
-.factory('ShoppingListFactory', ShoppingListFactory)
-.directive('shoppingList', ShoppingListDirective);
-
-
-function ShoppingListDirective() {
-  var ddo = {
-    templateUrl: 'shoppingList.html',
-    scope: {
-      items: '<',
-      myTitle: '@title',
-      badRemove: '=',
-      onRemove: '&'
-    },
-    controller: ShoppingListDirectiveController,
-    controllerAs: 'list',
-    bindToController: true
-  };
-
-  return ddo;
-}
+    angular.module('ShoppingListDirectiveApp', [])
+        .controller('ShoppingListController', ShoppingListController)
+        .service('ShoppingListService', ShoppingListService)
+        .directive('shoppingList', ShoppingListDirective);
 
 
-function ShoppingListDirectiveController() {
-  var list = this;
+    function ShoppingListDirective() {
+        var ddo = {
+            templateUrl: 'shoppingList.html',
+            scope: {
+                items: '<',
+                onRemove: '&'
+            },
+            controller: ShoppingListDirectiveController,
+            controllerAs: 'list',
+            bindToController: true
+        };
 
-  list.cookiesInList = function () {
-    for (var i = 0; i < list.items.length; i++) {
-      var name = list.items[i].name;
-      if (name.toLowerCase().indexOf("cookie") !== -1) {
-        return true;
-      }
+        return ddo;
     }
 
-    return false;
-  };
-}
 
-
-ShoppingListController.$inject = ['ShoppingListFactory'];
-function ShoppingListController(ShoppingListFactory) {
-  var list = this;
-
-  // Use factory to create new shopping list service
-  var shoppingList = ShoppingListFactory();
-
-  list.items = shoppingList.getItems();
-  var origTitle = "Shopping List #1";
-  list.title = origTitle + " (" + list.items.length + " items )";
-
-  list.itemName = "";
-  list.itemQuantity = "";
-
-  list.addItem = function () {
-    shoppingList.addItem(list.itemName, list.itemQuantity);
-    list.title = origTitle + " (" + list.items.length + " items )";
-  };
-
-  list.removeItem = function (itemIndex) {
-    console.log("'this' is: ", this);
-    this.lastRemoved = "Last item removed was " + this.items[itemIndex].name;
-    shoppingList.removeItem(itemIndex);
-    this.title = origTitle + " (" + list.items.length + " items )";
-  };
-}
-
-
-// If not specified, maxItems assumed unlimited
-function ShoppingListService(maxItems) {
-  var service = this;
-
-  // List of shopping items
-  var items = [];
-
-  service.addItem = function (itemName, quantity) {
-    if ((maxItems === undefined) ||
-        (maxItems !== undefined) && (items.length < maxItems)) {
-      var item = {
-        name: itemName,
-        quantity: quantity
-      };
-      items.push(item);
+    function ShoppingListDirectiveController() {
+        var list = this;
     }
-    else {
-      throw new Error("Max items (" + maxItems + ") reached.");
+
+
+    ShoppingListController.$inject = ['ShoppingListFactory'];
+
+    function ShoppingListController(ShoppingListFactory) {
+        var list = this;
+
+        list.searchTerm = '';
+        list.foundItems = [];
+        list.getMatchedMenuItems = function () {
+            var promise = MenuSearchService.getMatchedMenuItems(list.searchTerm);
+            promise.then(function (foundItems) {
+                list.foundItems = foundItems;
+                console.log("foundItems = ", list.foundItems);
+            }).catch(function (error) {
+                console.log("Something went terribly wrong.");
+            });
+        };
+
+        list.removeItem = function (itemIndex) {
+            alert("HHHHHHHHHHHHHHHHHHHHHHHi ");
+            list.foundItems.splice(itemIndex, 1);
+        };
+
+
     }
-  };
-
-  service.removeItem = function (itemIndex) {
-    items.splice(itemIndex, 1);
-  };
-
-  service.getItems = function () {
-    return items;
-  };
-}
 
 
-function ShoppingListFactory() {
-  var factory = function (maxItems) {
-    return new ShoppingListService(maxItems);
-  };
+    ShoppingListService.$inject = ['$http'];
 
-  return factory;
-}
+    function ShoppingListService($http) {
+        var service = this;
+        var foundItems = [];
+        service.getMatchedMenuItems = function (searchTerm) {
+            return $http({
+                method: "GET",
+                url: ("https://davids-restaurant.herokuapp.com/menu_items.json")
+            }).then(function (result) {
+                var menu_items = result.data.menu_items;
+                for (var i = 0; i < menu_items.length; i++) {
+                    // console.log(menu_items[i].description);
+                    var description = menu_items[i].description;
+                    if (description.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1) {
+                        foundItems.push(menu_items[i]);
+                    }
+                }
+                return foundItems;
+            });
+        };
+    }
+
 
 })();
