@@ -29,16 +29,23 @@
     function NarrowItDownController(MenuSearchService) {
         var Items = this;
         Items.searchTerm = '';
-        Items.foundItems = [];
+        // Items.foundItems = [];
         Items.getMatchedMenuItems = function (searchTerm) {
-            var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
-
-            promise.then(function (foundItems) {
-                Items.foundItems = foundItems;
-                console.log("foundItems = ", foundItems);
-            }).catch(function (error) {
-                console.log("Something went terribly wrong.");
-            });
+             Items.foundItems = [
+                {name: "cookies", short_name: 10},
+                {name: "Apple", short_name: 5},
+                {name: "Milk", short_name: 4},
+                {name: "Lemon", short_name: 15},
+                {name: "Tomato", short_name: 20},
+            ];
+            // var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
+            //
+            // promise.then(function (foundItems) {
+            //     Items.foundItems = foundItems;
+            //     console.log("foundItems = ", foundItems);
+            // }).catch(function (error) {
+            //     console.log("Something went terribly wrong.");
+            // });
         }
 
     }
