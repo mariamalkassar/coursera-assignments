@@ -9,7 +9,7 @@
         return {
             templateUrl: "foundItems.html",
             scope: {
-                foundItems: '<'
+                foundMyItems: '<'
             },
             controller: NarrowItDownDirectiveController,
             controllerAs: 'searchItems',
