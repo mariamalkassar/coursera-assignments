@@ -24,8 +24,8 @@
         var items = this;
         items.searchTerm = '';
         items.foundItems = [];
-        items.getMatchedMenuItems = function (searchTerm) {
-            var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
+        items.getMatchedMenuItems = function () {
+            var promise = MenuSearchService.getMatchedMenuItems(items.searchTerm);
 
             promise.then(function (foundItems) {
                 items.foundItems = foundItems;
@@ -35,13 +35,11 @@
             });
         };
 
-        items.removeItem = function () {
+        items.remove = function (itemIndex) {
             alert("HHHHHHHHHHHHHHHHHHHHHHHi ");
-            console.log("Remove item index ==");
-            // this.lastRemoved = "Last item removed was " + this.items[itemIndex].name;
-            // MenuSearchService.removeItem(itemIndex);
-
+            items.foundItems.splice(itemIndex, 1);
         };
+
 
     }
 

@@ -16,7 +16,7 @@
             <td>{{item.description}}</td>
             <td>
 
-                <button ng-click="lists.onRemove">Don't want this one!</button>
+                <button ng-click="lists.onRemove({idx: $index})">Don't want this one!</button>
             </td>
         </tr>
 
