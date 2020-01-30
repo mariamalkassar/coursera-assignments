@@ -48,7 +48,7 @@
         };
 
         items.remove = function (itemIndex) {
-            MenuSearchService.removeItem(itemIndex);
+            items.foundItems.splice(itemIndex, 1);
         };
 
 
@@ -75,9 +75,6 @@
                 }
                 return foundItems;
             });
-        };
-        service.removeItem = function (itemIndex) {
-            foundItems.splice(itemIndex, 1);
         };
 
 
