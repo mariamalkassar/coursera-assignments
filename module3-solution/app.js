@@ -13,7 +13,7 @@
                 onRemove: '&'
             },
             controller: ShoppingListDirectiveController,
-            controllerAs: 'lists',
+            controllerAs: 'ctrl',
             bindToController: true
         };
 
@@ -21,11 +21,7 @@
     }
 
     function ShoppingListDirectiveController() {
-        var list = this;
 
-        list.cookiesInList = function () {
-            return false;
-        };
     }
 
     NarrowItDownController.$inject = ['MenuSearchService'];
@@ -47,7 +43,7 @@
 
         items.remove = function (itemIndex) {
             alert("HHHHHHHHHHHHHHHHHHHHHHHi ");
-            // items.foundItems.splice(itemIndex, 1);
+            items.foundItems.splice(itemIndex, 1);
         };
 
 

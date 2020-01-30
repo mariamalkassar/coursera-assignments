@@ -1,6 +1,6 @@
-<p>Test44</p>
+<p>Test4222</p>
 <label>{{lists.searchTerm}}</label>
-<table class="table table-striped" ng-if="lists.foundItems.length != 0">
+<table class="table table-striped" ng-if="ctrl.lists.length != 0">
         <thead class="thead-light">
         <tr>
             <th scope="col">Name</th>
@@ -10,13 +10,13 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="item in lists.foundItems">
+        <tr ng-repeat="item in ctrl.lists">
             <th>{{item.name }}</th>
             <td>{{item.short_name}}</td>
             <td>{{item.description}}</td>
             <td>
 
-                <button ng-click="lists.onRemove({index: $index});">Don't want this!</button>
+                <button ng-click="ctrl.onRemove({index: $index});">Don't want this!</button>
             </td>
         </tr>
 
