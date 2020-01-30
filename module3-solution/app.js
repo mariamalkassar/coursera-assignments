@@ -67,7 +67,7 @@
                 for (var i = 0; i < menu_items.length; i++) {
                     // console.log(menu_items[i].description);
                     var description = menu_items[i].description;
-                    if (description.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1) {
+                    if (description.indexOf(searchTerm) !== -1) {
                         foundItems.push(menu_items[i]);
                     }
                 }
