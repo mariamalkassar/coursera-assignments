@@ -36,14 +36,20 @@
         items.searchTerm = '';
         items.foundItems = [];
         items.getMatchedMenuItems = function () {
-            var promise = MenuSearchService.getMatchedMenuItems(items.searchTerm);
-
-            promise.then(function (foundItems) {
-                items.foundItems = foundItems;
-                console.log("foundItems = ", items.foundItems);
-            }).catch(function (error) {
-                console.log("Something went terribly wrong.");
-            });
+            items.foundItems = [
+                {name: 'mimi', short_name: "11", describtion: "tyryrty"},
+                {name: 'mimi', short_name: "11", describtion: "tyryrty"},
+                {name: 'mimi', short_name: "11", describtion: "tyryrty"},
+                {name: 'mimi', short_name: "11", describtion: "tyryrty"},
+            ]
+            // var promise = MenuSearchService.getMatchedMenuItems(items.searchTerm);
+            //
+            // promise.then(function (foundItems) {
+            //     items.foundItems = foundItems;
+            //     console.log("foundItems = ", items.foundItems);
+            // }).catch(function (error) {
+            //     console.log("Something went terribly wrong.");
+            // });
         };
 
         items.removeItem = function (itemIndex) {
