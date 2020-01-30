@@ -37,16 +37,13 @@
                 var promise = MenuSearchService.getMatchedMenuItems(items.searchTerm);
                 promise.then(function (foundItems) {
                     items.foundItems = foundItems;
-
+                    items.show = MenuSearchService.EmptyList();
                 }).catch(function (error) {
                     console.log("Something went terribly wrong.");
                 });
             }
-            if (items.foundItems.length === 0) {
-                items.show = true;
-            } else {
-                items.show = false;
-            }
+            items.show = MenuSearchService.EmptyList();
+
         };
 
         items.remove = function (itemIndex) {
@@ -82,6 +79,13 @@
         service.removeItem = function (itemIndex) {
             foundItems.splice(itemIndex, 1);
         };
+        service.emptyList = function () {
+            if (foundItems.length === 0) {
+                 return true;
+            } else {
+                return false;
+            }
+        }
 
 
     }
