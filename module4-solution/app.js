@@ -11,7 +11,7 @@
         var ddo = {
             templateUrl: 'shoppingList.html',
             scope: {
-                itemss: '<',
+                founditems: '<',
                 onRemove: '&'
             },
             controller: ShoppingListDirectiveController,
@@ -32,10 +32,10 @@
 
     function ShoppingListController(ShoppingListservice) {
         var list = this;
-        list.getMatchedMenuItems = function () {
+        list.getMatchedMenufounditems = function () {
             console.log("22222")
-            list.items = ShoppingListservice.getItems();
-            console.log(list.items);
+            list.founditems = ShoppingListservice.getfounditems();
+            console.log(list.founditems);
         }
 
 
@@ -48,8 +48,8 @@
     function ShoppingListservice() {
         var service = this;
 
-        // List of shopping items
-        var items = [
+        // List of shopping founditems
+        var founditems = [
             {name: 'mariam', short_name: 'AA', describtion: '21321'},
             {name: 'mariam', short_name: 'AA', describtion: '21321'},
             {name: 'mariam', short_name: 'AA', describtion: '21321'},
@@ -60,11 +60,11 @@
 
 
         service.removeItem = function (itemIndex) {
-            items.splice(itemIndex, 1);
+            founditems.splice(itemIndex, 1);
         };
 
-        service.getItems = function () {
-            return items;
+        service.getfounditems = function () {
+            return founditems;
         };
     }
 
