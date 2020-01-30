@@ -35,9 +35,9 @@
             });
         };
 
-        items.remove = function (itemIndex) {
+        items.remove = function () {
             alert("HHHHHHHHHHHHHHHHHHHHHHHi ");
-            items.foundItems.splice(itemIndex, 1);
+            // items.foundItems.splice(itemIndex, 1);
         };
 
 
