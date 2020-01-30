@@ -35,11 +35,11 @@
             });
         };
 
-        items.removeItem = function (itemIndex) {
+        items.removeItem = function () {
             alert("HHHHHHHHHHHHHHHHHHHHHHHi ");
-            console.log("Remove item index ==", itemIndex);
+            console.log("Remove item index ==");
             // this.lastRemoved = "Last item removed was " + this.items[itemIndex].name;
-            MenuSearchService.removeItem(itemIndex);
+            // MenuSearchService.removeItem(itemIndex);
 
         };
 
