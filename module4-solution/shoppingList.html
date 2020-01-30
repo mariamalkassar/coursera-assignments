@@ -1,23 +1,9 @@
-<p>Test2</p>
-<table class="table table-striped" ng-if="list.foundItems.length != 0">
-    <thead class="thead-light">
-    <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Short name</th>
-        <th scope="col">Description</th>
-        <th scope="col">---</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr ng-repeat="item in list.foundItems">
-        <th>{{item.name }}</th>
-        <td>{{item.short_name}}</td>
-        <td>{{item.description}}</td>
-        <td>
-
-            <button ng-click="list.onRemove({idx: $index})">Don't want this one!</button>
-        </td>
-    </tr>
-
-    </tbody>
-</table>
+<h3>Title: {{ list.myTitle }}</h3>
+<ol>
+  <li ng-repeat="item in list.items">
+    {{ item.quantity }} of {{ item.name }}
+    <button ng-click="list.badRemove($index);">Bad Remove Item</button>
+    <button ng-click="list.onRemove({index: $index});">Remove Item</button>
+  </li>
+</ol>
+<div class="error" ng-if="list.cookiesInList()">WARNING! WARNING! COOKIES DETECTED!</div>
