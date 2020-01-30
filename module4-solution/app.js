@@ -33,7 +33,7 @@
         var list = this;
         list.getMatchedMenuItems = function () {
             console.log("22222")
-            list.lines = ShoppingListservice.getItems();
+            list.lines1 = ShoppingListservice.getItems();
             console.log(list.lines);
         }
 
@@ -48,7 +48,7 @@
         var service = this;
 
         // List of shopping items
-        var lines = [
+        var lines1 = [
             {name: 'mariam', short_name: 'AA', describtion: '21321'},
             {name: 'mariam', short_name: 'AA', describtion: '21321'},
             {name: 'mariam', short_name: 'AA', describtion: '21321'},
@@ -59,11 +59,11 @@
 
 
         service.removeItem = function (itemIndex) {
-            lines.splice(itemIndex, 1);
+            lines1.splice(itemIndex, 1);
         };
 
         service.getItems = function () {
-            return lines;
+            return lines1;
         };
     }
 
