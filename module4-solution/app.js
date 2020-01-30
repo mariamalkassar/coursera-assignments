@@ -74,7 +74,12 @@ function ShoppingListService(maxItems) {
   var service = this;
 
   // List of shopping items
-  var items = [];
+  var items = [
+      {name: 11,quantity:33},
+      {name: 11,quantity:33},
+      {name: 11,quantity:33},
+      {name: 11,quantity:33},
+  ];
 
   service.addItem = function (itemName, quantity) {
     if ((maxItems === undefined) ||
