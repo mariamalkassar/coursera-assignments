@@ -2,19 +2,9 @@
     'use strict';
     angular.module('MyApp', [])
         .controller('NarrowItDownController', NarrowItDownController)
-        .service('MenuSearchService', MenuSearchService)
-        .directive('itemsList', foundItemsDirective);
+        .service('MenuSearchService', MenuSearchService);
 
-    function foundItemsDirective() {
-        return {
-            templateUrl: "foundItems.html",
-            scope: {
-                items: '<',
-                myTitle: '@title'
-            },
 
-        };
-    }
 
 
     NarrowItDownController.$inject = ['MenuSearchService'];
@@ -22,24 +12,24 @@
     function NarrowItDownController(MenuSearchService) {
         var items = this;
         items.searchTerm = '';
-        // Items.foundItems = [];
+        Items.foundItems = [];
         items.getMatchedMenuItems = function (searchTerm) {
-             items.foundItems = [
-                {name: "cookies", short_name: 10},
-                {name: "Apple", short_name: 5},
-                {name: "Milk", short_name: 4},
-                {name: "Lemon", short_name: 15},
-                {name: "Tomato", short_name: 20},
-            ];
-             console.log("foundItems = ", items.foundItems);
-            // var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
-            //
-            // promise.then(function (foundItems) {
-            //     Items.foundItems = foundItems;
-            //     console.log("foundItems = ", foundItems);
-            // }).catch(function (error) {
-            //     console.log("Something went terribly wrong.");
-            // });
+            //  items.foundItems = [
+            //     {name: "cookies", short_name: 10},
+            //     {name: "Apple", short_name: 5},
+            //     {name: "Milk", short_name: 4},
+            //     {name: "Lemon", short_name: 15},
+            //     {name: "Tomato", short_name: 20},
+            // ];
+
+            var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
+
+            promise.then(function (foundItems) {
+                Items.foundItems = foundItems;
+                console.log("foundItems = ", foundItems);
+            }).catch(function (error) {
+                console.log("Something went terribly wrong.");
+            });
         }
 
     }
