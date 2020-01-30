@@ -3,7 +3,7 @@
     angular.module('MyApp', [])
         .controller('NarrowItDownController', NarrowItDownController)
         .service('MenuSearchService', MenuSearchService)
-        .directive('foundItems', foundItemsDirective);
+        .directive('itemsList', foundItemsDirective);
 
     function foundItemsDirective() {
         return {
