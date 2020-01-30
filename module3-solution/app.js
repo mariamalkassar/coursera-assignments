@@ -23,7 +23,9 @@
     function ShoppingListDirectiveController() {
         var list = this;
 
-
+        list.cookiesInList = function () {
+            return false;
+        };
     }
 
     NarrowItDownController.$inject = ['MenuSearchService'];
