@@ -62,6 +62,7 @@
         var service = this;
         var foundItems = [];
         service.getMatchedMenuItems = function (searchTerm) {
+            var foundItems = [];
             return $http({
                 method: "GET",
                 url: ("https://davids-restaurant.herokuapp.com/menu_items.json")
@@ -82,7 +83,7 @@
             foundItems.splice(itemIndex, 1);
         };
         service.EmptyList = function () {
-            if (foundItems.length === 0){
+            if (foundItems.length === 0) {
                 return true;
             }
             return false
