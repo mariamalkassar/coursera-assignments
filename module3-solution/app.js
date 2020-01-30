@@ -15,43 +15,14 @@
             controller: NarrowItDownDirectiveController,
             controllerAs: 'ctrl',
             bindToController: true,
-            link: NarrowItDownDirectiveLink
         };
 
         return ddo;
     }
 
-    function NarrowItDownDirectiveLink(scope, element, attrs, controller) {
-        scope.$watch('ctrl.emptyInput', function (newValue, oldValue) {
-            if (newValue === true) {
-                displayCookieWarning();
-            } else {
-                removeCookieWarning();
-            }
-
-        });
-
-        function displayCookieWarning() {
-            var warningElem = element.find("div.error");
-            warningElem.slideDown(900);
-        }
-
-
-        function removeCookieWarning() {
-            var warningElem = element.find("div.error");
-            warningElem.slideUp(900);
-        }
-    }
 
     function NarrowItDownDirectiveController() {
-        var ctrl = this;
 
-        ctrl.emptyInput = function () {
-            if (ctrl.lists.length == 0) {
-                return true;
-            }
-            return false;
-        };
     }
 
     NarrowItDownController.$inject = ['MenuSearchService'];
@@ -60,15 +31,21 @@
         var items = this;
         items.searchTerm = '';
         items.foundItems = [];
+        items.show = false;
         items.getMatchedMenuItems = function () {
             var promise = MenuSearchService.getMatchedMenuItems(items.searchTerm);
-
             promise.then(function (foundItems) {
                 items.foundItems = foundItems;
 
             }).catch(function (error) {
                 console.log("Something went terribly wrong.");
             });
+
+            if (items.foundItems.length === 0) {
+                items.show = true;
+            } else {
+                items.show = false;
+            }
         };
 
         items.remove = function (itemIndex) {
