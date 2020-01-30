@@ -9,7 +9,8 @@
         var ddo = {
             templateUrl: 'foundItemsTemplate.html',
             scope: {
-                items: '<'
+                items: '<',
+                onRemove: '&'
             }
         };
 
@@ -34,13 +35,20 @@
             });
         }
 
+        items.removeItem = function (itemIndex) {
+            console.log("Remove item index ==", itemIndex);
+            // this.lastRemoved = "Last item removed was " + this.items[itemIndex].name;
+            MenuSearchService.removeItem(itemIndex);
+
+        };
+
     }
 
     MenuSearchService.$inject = ['$http'];
 
     function MenuSearchService($http) {
         var service = this;
-
+        var foundItems = [];
         service.getMatchedMenuItems = function (searchTerm) {
             return $http({
                 method: "GET",
@@ -48,7 +56,7 @@
             }).then(function (result) {
                 var menu_items = result.data.menu_items;
 
-                var foundItems = [];
+
                 for (var i = 0; i < menu_items.length; i++) {
                     // console.log(menu_items[i].description);
                     var description = menu_items[i].description;
@@ -58,6 +66,9 @@
                 }
                 return foundItems;
             });
+        };
+        service.removeItem = function (itemIndex) {
+            foundItems.splice(itemIndex, 1);
         };
 
 
