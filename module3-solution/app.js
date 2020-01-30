@@ -13,7 +13,7 @@
                 onRemove: '&',
             },
             controller: NarrowItDownDirectiveController,
-            controllerAs: 'items',
+            controllerAs: 'list',
             bindToController: true
         };
 
@@ -21,7 +21,7 @@
     }
 
     function NarrowItDownDirectiveController() {
-        var items = this;
+        var list = this;
 
 
     }
@@ -29,21 +29,21 @@
     NarrowItDownController.$inject = ['MenuSearchService'];
 
     function NarrowItDownController(MenuSearchService) {
-        var items = this;
-        items.searchTerm = '';
-        items.foundItems = [];
-        items.getMatchedMenuItems = function (searchTerm) {
+        var list = this;
+        list.searchTerm = '';
+        list.foundItems = [];
+        list.getMatchedMenuItems = function (searchTerm) {
             var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
 
             promise.then(function (foundItems) {
-                items.foundItems = foundItems;
-                console.log("foundItems = ", items.foundItems);
+                list.foundItems = foundItems;
+                console.log("foundItems = ", list.foundItems);
             }).catch(function (error) {
                 console.log("Something went terribly wrong.");
             });
         };
 
-        items.removeItem = function (itemIndex) {
+        list.removeItem = function (itemIndex) {
             console.log("Remove item index ==", itemIndex);
             // this.lastRemoved = "Last item removed was " + this.items[itemIndex].name;
             MenuSearchService.removeItem(itemIndex);
