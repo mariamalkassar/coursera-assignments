@@ -14,18 +14,16 @@
 <!-- LIST #1 - unlimited items -->
 <div id="list" ng-controller='ShoppingListController as list'>
     <h1>Narrow Down Your Chinese Menu Choice</h1>
-    <div class="form-group">
-        <input type="text" placeholder="search term" ng-model="list.searchTerm" class="form-control">
-    </div>
+<!--    <div class="form-group">-->
+<!--        <input type="text" placeholder="search term" ng-model="list.searchTerm" class="form-control">-->
+<!--    </div>-->
     <div class="form-group narrow-button">
         <button class="btn btn-primary" ng-click="list.getMatchedMenuItems()">Narrow It
             Down For Me!
         </button>
     </div>
 
-    <shopping-list
-            items="list"
-            on-remove="list.removeItem(index)"></shopping-list>
+    <shopping-list items="list.founded" on-remove="list.removeItem(index)"></shopping-list>
 
 </div>
 
