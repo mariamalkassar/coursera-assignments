@@ -3,34 +3,23 @@
 <head>
     <title>Narrow Down Your Menu Choice</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
-    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="lib/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="lib/angular.min.js"></script>
+    <script type="text/javascript" src="lib/angular-ui-router.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
+
+    <script type="text/javascript" src="spinner.module.js"></script>
+    <script type="text/javascript" src="routes.js"></script>
+    <script type="text/javascript" src="loadingsppiner.component.js"></script>
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-<div class="container" ng-controller="NarrowItDownController as items">
-    <h1>Narrow Down Your Chinese Menu Choice</h1>
+<h1>Welcome to our Restaurant ^_^</h1>
 
-    <div class="form-group">
-        <input type="text" placeholder="search term" ng-model="items.searchTerm" class="form-control">
-    </div>
-    <div class="form-group narrow-button">
-        <button class="btn btn-primary" ng-click="items.getMatchedMenuItems()">Narrow It
-            Down For Me!
-        </button>
-    </div>
-    <br>
-    <br>
-    <found-items lists="items.foundItems" on-remove="items.remove(index)" empty-list="items.empty_list"></found-items>
-    <br>
-<!--    <div class="error" ng-if="!items.foundItems.length">Nothing found.</div>-->
-<!--    <div class="error" ng-if="items.show">Nothing found..</div>-->
-    <!-- found-items should be implemented as a component -->
-    <!--    <items-list items="items.foundItems" title="Shopping List #2 (limited to 3 items)"></items-list>-->
+<ui-view></ui-view>
 
-</div>
+<loading-spinner></loading-spinner>
 
 </body>
 </html>
