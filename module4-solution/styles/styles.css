@@ -1,7 +1,14 @@
 body {
   font-size: 1.5em;
+
+}
+h1{
+  font-family: Arial;
 }
 
+.header{
+  display: inline-block;
+}
 .error {
   color: red;
   font-weight: bold;
@@ -14,10 +21,6 @@ body {
   top: 10px;
 }
 
-li[ui-sref]:hover {
-  display: inline-block;
+tr[ui-sref]:hover {
   cursor: pointer;
-  border: solid black 1px;
-  padding-left: 5px;
-  padding-right: 5px;
 }

@@ -1,25 +1,62 @@
 <!doctype html>
-<html lang="en" ng-app="MyApp">
+<html lang="en" ng-app="MenuApp">
 <head>
     <title>Narrow Down Your Menu Choice</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--    Libraries-->
     <script type="text/javascript" src="lib/jquery-1.12.4.min.js"></script>
     <script type="text/javascript" src="lib/angular.min.js"></script>
     <script type="text/javascript" src="lib/angular-ui-router.min.js"></script>
-    <script type="text/javascript" src="app.js"></script>
 
-    <script type="text/javascript" src="spinner.module.js"></script>
-    <script type="text/javascript" src="routes.js"></script>
-    <script type="text/javascript" src="loadingsppiner.component.js"></script>
+    <!--    Modules-->
+    <script type="text/javascript" src="js/menuapp.module.js"></script>
+    <script type="text/javascript" src="js/data.module.js"></script>
+
+    <!--    Routes-->
+    <script type="text/javascript" src="js/routes.js"></script>
+
+    <!--    Moule Artifacts-->
+    <script type="text/javascript" src="js/categories.component.js"></script>
+    <script type="text/javascript" src="js/categories.controller.js"></script>
+    <script type="text/javascript" src="js/items.component.js"></script>
+    <script type="text/javascript" src="js/itemsList.controller.js"></script>
+
+    <!--    service-->
+    <script type="text/javascript" src="js/menudata.service.js"></script>
+
+
+    <!--    Spinner -->
+    <script type="text/javascript" src="spinner/spinner.module.js"></script>
+    <script type="text/javascript" src="spinner/loadingsppiner.component.js"></script>
+
+    <!--    fontawesome library to use Emoji -->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+    <!--    css -->
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/styles.css">
+
 </head>
 <body>
-<h1>Welcome to our Restaurant ^_^</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <br>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">Welcome to our Restaurant
+                            <i style='font-size:25px' class='fas'>&#xf598;</i>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+            <ui-view></ui-view>
+            <loading-spinner></loading-spinner>
+        </div>
+    </div>
+</div>
 
-<ui-view></ui-view>
-
-<loading-spinner></loading-spinner>
 
 </body>
 </html>

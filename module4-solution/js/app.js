@@ -6,13 +6,13 @@
         .service('RestaurantService', RestaurantService)
         .constant('ApiBasePath', "https://davids-restaurant.herokuapp.com")
         .component('categories', {
-            templateUrl: 'templates/display_categories.template.html',
+            templateUrl: '../templates/display_categories.template.html',
             bindings: {
                 items: '<'
             }
         })
         .component('itemsOfCategory', {
-            templateUrl: 'templates/display_categories_items.template.html',
+            templateUrl: '../templates/display_categories_items.template.html',
             bindings: {
                 itemsList: '<'
             }

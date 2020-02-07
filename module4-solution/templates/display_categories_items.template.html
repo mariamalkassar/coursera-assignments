@@ -1,5 +1,17 @@
-<ul>
-    <li ng-repeat="item in $ctrl.itemsList">
-        {{ item.id }} {{item.short_name}} {{ item.name }}
-    </li>
-</ul>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Short name</th>
+      <th scope="col">Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="item in $ctrl.itemsList">
+      <td>{{ item.id }} </td>
+      <td>{{item.short_name}} </td>
+      <td>{{ item.name }}</td>
+    </tr>
+
+  </tbody>
+</table>

@@ -3,7 +3,7 @@
 
 angular.module('Spinner')
 .component('loadingSpinner', {
-  templateUrl: 'templates/loadingspinner.template.html',
+  templateUrl: 'spinner/loadingspinner.template.html',
   controller: SpinnerController
 });
 
