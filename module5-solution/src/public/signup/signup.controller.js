@@ -13,5 +13,6 @@
             signUpCtrl.user.itemNotFound = "";
             UserService.setUser(signUpCtrl.user);
         };
+        signUpCtrl.user = UserService.getUser();
     }
 })();
