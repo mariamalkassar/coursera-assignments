@@ -1,0 +1,47 @@
+<div class="container">
+    <h1>User Information:</h1>
+    <div ng-if="myInfoCtrl.userInfo">
+        <table class="table">
+            <thead class="thead-light">
+            <tr>
+                <th scope="col">First name</th>
+                <th scope="col">Last name</th>
+                <th scope="col">email</th>
+                <th scope="col">phone</th>
+                <th scope="col">Favorite item</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">
+                    {{myInfoCtrl.userInfo.firstname}}
+                </th>
+                <td>
+                    {{myInfoCtrl.userInfo.lastname}}
+                </td>
+                <td>
+                    {{myInfoCtrl.userInfo.email}}
+                </td>
+                <td>
+                    {{myInfoCtrl.userInfo.phone}}
+                </td>
+                <td>
+                    {{myInfoCtrl.userInfo.favItem}}
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+
+        <menu-item menu-item="myInfoCtrl.userInfo.menuItem">
+        </menu-item>
+
+
+    </div>
+
+    <div ng-if="myInfoCtrl.userInfo === undefined"> Not Signed Up Yet.
+        <a ui-sref="public.signup">Sign up Now! </a>
+    </div>
+
+
+</div> <!-- container -->
