@@ -20,7 +20,7 @@
                 })
                     .catch(function (errorResponse) {
                         user = undefined;
-                        current_user.itemNotFound = "Unfortunately, this item [" + current_user.favItem + "] is not found";
+                        current_user.itemNotFound = "Unfortunately, this item [" + current_user.favItem + "] is not exist";
                     });
             };
             service.getUser = function () {
